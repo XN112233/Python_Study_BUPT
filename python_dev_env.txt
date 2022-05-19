@@ -1,0 +1,16 @@
+python 开发环境配置
+
+安装windows terminal
+安装最新版python(重启终端检测版本)
+安装VS Code 
+新建文件夹，作为开发目录
+terminal: 
+	cd 目录
+	python -m venv .venv
+VS Code:
+	打开该文件夹
+	新建文件，并运行【在 Microsoft Windows 上，为了启用 Activate.ps1 脚本，可能需要修改用户的执行策略。可以运行以下 PowerShell 命令来执行此操作：
+	PS C:> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser】
+	python -m pip install xxx 比较慢，可以找清华镜像源资料
+	jupyter notebook 需要安装ipykernel，直接装会read timed out，可能也需要找镜像源资料
+	pip可以升级，只影响当前虚拟环境：python.exe -m pip install --upgrade pip

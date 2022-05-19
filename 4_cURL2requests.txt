@@ -1,0 +1,53 @@
+'''network-doc 
+copy as cURL
+convert cURL to python'''
+
+curl 'https://search.douban.com/book/subject_search?search_text=%E7%BC%96%E7%A8%8B&cat=1001' \
+  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+  -H 'Accept-Language: zh-CN,zh;q=0.9,en;q=0.8' \
+  -H 'Cache-Control: max-age=0' \
+  -H 'Connection: keep-alive' \
+  -H 'Cookie: bid=XcoOr7ejKmc; gr_user_id=1523b67f-18ea-4fc5-8c84-3e67aad24fab; __utmc=30149280; ct=y; __utma=30149280.1599895852.1650381936.1650381936.1650426980.2; __utmz=30149280.1650426980.2.2.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; _pk_ref.100001.2939=%5B%22%22%2C%22%22%2C1650429105%2C%22https%3A%2F%2Fbook.douban.com%2F%22%5D; _pk_id.100001.2939=9c65f69b02439602.1650381945.3.1650429105.1650426986.' \
+  -H 'Referer: https://book.douban.com/' \
+  -H 'Sec-Fetch-Dest: document' \
+  -H 'Sec-Fetch-Mode: navigate' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'Sec-Fetch-User: ?1' \
+  -H 'Upgrade-Insecure-Requests: 1' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36' \
+  -H 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed
+
+# 使用
+# https://reqbin.com/req/python/c-xgafmluu/convert-curl-to-python-requests
+# 进行线上转换python
+
+import requests
+from requests.structures import CaseInsensitiveDict
+
+url = "https://search.douban.com/book/subject_search?search_text=%E7%BC%96%E7%A8%8B&cat=1001"
+
+headers = CaseInsensitiveDict()
+headers["Accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
+headers["Accept-Language"] = "zh-CN,zh;q=0.9,en;q=0.8"
+headers["Cache-Control"] = "max-age=0"
+headers["Connection"] = "keep-alive"
+headers["Cookie"] = "bid=XcoOr7ejKmc; gr_user_id=1523b67f-18ea-4fc5-8c84-3e67aad24fab; __utmc=30149280; ct=y; __utma=30149280.1599895852.1650381936.1650381936.1650426980.2; __utmz=30149280.1650426980.2.2.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; _pk_ref.100001.2939=%5B%22%22%2C%22%22%2C1650429105%2C%22https%3A%2F%2Fbook.douban.com%2F%22%5D; _pk_id.100001.2939=9c65f69b02439602.1650381945.3.1650429105.1650426986."
+headers["Referer"] = "https://book.douban.com/"
+headers["Sec-Fetch-Dest"] = "document"
+headers["Sec-Fetch-Mode"] = "navigate"
+headers["Sec-Fetch-Site"] = "same-site"
+headers["Sec-Fetch-User"] = "?1"
+headers["Upgrade-Insecure-Requests"] = "1"
+headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+headers["sec-ch-ua"] = "" Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100""
+headers["sec-ch-ua-mobile"] = "?0"
+headers["sec-ch-ua-platform"] = ""Windows""
+
+
+resp = requests.get(url, headers=headers)
+
+print(resp.status_code)
+
